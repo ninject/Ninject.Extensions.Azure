@@ -1,0 +1,8 @@
+1. Get the Ninject version for which you want to build this extension. Compiled versions can be found on Build Server: 
+   http://teamcity.codebetter.com/viewType.html?tab=buildTypeStatusDiv&buildTypeId=bt243
+2. Copy all the zipped ninject files to lib/Ninject
+3. Run UnzipDependencies.cmd
+4. Run build-release.cmd
+
+The azure extension for ninject only supports .NET 3.5 and .NET 4
+
