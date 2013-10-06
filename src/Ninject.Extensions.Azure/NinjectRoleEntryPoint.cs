@@ -14,7 +14,7 @@ namespace Ninject.Extensions.Azure
     /// </summary>
     public abstract class NinjectRoleEntryPoint : RoleEntryPoint
     {
-        private IKernel Kernel { get; set; }
+        protected IKernel Kernel { get; set; }
 
         /// <summary>
         /// Called by Windows Azure to initialize the role instance.
