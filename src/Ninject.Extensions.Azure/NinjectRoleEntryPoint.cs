@@ -8,7 +8,7 @@ namespace Ninject.Extensions.Azure
 {
     using Microsoft.WindowsAzure.ServiceRuntime;
     using Ninject;
-using Ninject.Syntax;
+    using Ninject.Syntax;
 
     /// <summary>
     /// Abstract implementation of a ninject-capable RoleEntryPoint for azure roles.
