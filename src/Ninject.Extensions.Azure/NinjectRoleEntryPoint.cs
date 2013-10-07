@@ -8,6 +8,7 @@ namespace Ninject.Extensions.Azure
 {
     using Microsoft.WindowsAzure.ServiceRuntime;
     using Ninject;
+    using Ninject.Syntax;
 
     /// <summary>
     /// Abstract implementation of a ninject-capable RoleEntryPoint for azure roles.
@@ -15,6 +16,7 @@ namespace Ninject.Extensions.Azure
     public abstract class NinjectRoleEntryPoint : RoleEntryPoint
     {
         private IKernel Kernel { get; set; }
+        protected IResolutionRoot ResolutionRoot { get { return this.Kernel; } }
 
         /// <summary>
         /// Called by Windows Azure to initialize the role instance.
