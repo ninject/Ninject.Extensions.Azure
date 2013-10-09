@@ -25,8 +25,35 @@ namespace Ninject.Extensions.Azure
             this.testee.KernelCreated.Should().BeTrue();
         }
 
+        [Fact]
+        public void InjectsPropertyOnStart()
+        {
+            this.testee.OnStart();
+
+            this.testee.Injection.Should().NotBeNull();
+        }
+
+        [Fact]
+        public void InjectsMethod()
+        {
+            this.testee.OnStart();
+
+            this.testee.MethodHasBeenCalled.Should().BeTrue();
+        }
+
         private class TestableNinjectRoleEntryPoint : NinjectRoleEntryPoint
         {
+            [Inject]
+            public InjectedClass Injection { get; set; }
+
+            [Inject]
+            public void InjectionMethod(InjectedClass obj)
+            {
+                this.MethodHasBeenCalled = obj != null;
+            }
+
+            public bool MethodHasBeenCalled { get; private set; }
+
             public bool KernelCreated { get; private set; }
 
             public override void Run()
@@ -41,4 +68,6 @@ namespace Ninject.Extensions.Azure
             }
         }
     }
+
+    public class InjectedClass { }
 }
