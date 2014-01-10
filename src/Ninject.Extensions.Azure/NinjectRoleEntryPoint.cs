@@ -25,7 +25,7 @@ namespace Ninject.Extensions.Azure
         public sealed override bool OnStart()
         {
             this.Kernel = this.CreateKernel();
-
+            this.Kernel.Inject(this);
             return this.OnRoleStarted();
         }
 
