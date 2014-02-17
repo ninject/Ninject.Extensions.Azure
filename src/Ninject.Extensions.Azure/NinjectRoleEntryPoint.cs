@@ -67,7 +67,7 @@ namespace Ninject.Extensions.Azure
         }
 
         /// <summary>
-        /// The extension point to perform custom shutdown actions for your azure lore. This method is called before ninject kernel is disposed.
+        /// The extension point to perform custom shutdown actions that needs Ninject kernel. This method is called before ninject kernel is disposed.
         /// </summary>
         protected virtual void OnRoleStopping()
         {
