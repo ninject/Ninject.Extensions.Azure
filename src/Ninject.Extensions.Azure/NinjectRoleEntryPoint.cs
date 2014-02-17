@@ -40,6 +40,8 @@ namespace Ninject.Extensions.Azure
         /// </summary>
         public sealed override void OnStop()
         {
+            this.OnRoleStopping();
+
             if (this.Kernel != null)
             {
                 this.Kernel.Dispose();
@@ -62,6 +64,13 @@ namespace Ninject.Extensions.Azure
         protected virtual bool OnRoleStarted()
         {
             return true;
+        }
+
+        /// <summary>
+        /// The extension point to perform custom shutdown actions for your azure lore. This method is called before ninject kernel is disposed.
+        /// </summary>
+        protected virtual void OnRoleStopping()
+        {
         }
 
         /// <summary>
