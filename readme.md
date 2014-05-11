@@ -1,6 +1,6 @@
 This extension adds support for Microsoft Azure Worker Roles.
 
-Just derive from NinjectRoleEntryPoint in your Workerrole.cs (previously RoleEntryPoint) and implement the following methods:
+Just derive from NinjectRoleEntryPoint in your WorkerRole.cs (previously RoleEntryPoint) and implement the following methods:
 
 The Run method is the main thread of execution for your role instance.
 ```csharp
