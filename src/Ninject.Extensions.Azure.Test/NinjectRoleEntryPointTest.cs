@@ -22,7 +22,8 @@ namespace Ninject.Extensions.Azure
         {
             this.testee.OnStart();
 
-            this.testee.KernelCreated.Should().BeTrue();
+            this.testee.Kernel.Should().NotBeNull();
+            this.testee.Kernel.IsDisposed.Should().BeFalse();
         }
 
         [Fact]
@@ -34,11 +35,46 @@ namespace Ninject.Extensions.Azure
         }
 
         [Fact]
-        public void InjectsMethod()
+        public void InjectsMethodOnStart()
         {
             this.testee.OnStart();
 
-            this.testee.MethodHasBeenCalled.Should().BeTrue();
+            this.testee.MethodInjection.Should().NotBeNull();
+        }
+
+        [Fact]
+        public void CallsOnStarted()
+        {
+            this.testee.OnStart();
+            this.testee.IsStarted.Should().BeTrue();
+            this.testee.IsRunning.Should().BeFalse();
+        }
+
+        [Fact]
+        public void CallsRun()
+        {
+            this.testee.Run();
+
+            this.testee.IsRunning.Should().BeTrue();
+        }
+
+        [Fact]
+        public void CallsOnStopping()
+        {
+            this.testee.OnStart();
+            this.testee.OnStop();
+
+            this.testee.IsRunning.Should().BeFalse();
+        }
+
+        [Fact]
+        public void CallsOnStopped()
+        {
+            this.testee.OnStart();
+            this.testee.OnStop();
+
+            this.testee.IsStarted.Should().BeFalse();
+            this.testee.Kernel.IsDisposed.Should().BeTrue();
         }
 
         private class TestableNinjectRoleEntryPoint : NinjectRoleEntryPoint
@@ -49,22 +85,42 @@ namespace Ninject.Extensions.Azure
             [Inject]
             public void InjectionMethod(InjectedClass obj)
             {
-                this.MethodHasBeenCalled = obj != null;
+                this.MethodInjection = obj;
             }
 
-            public bool MethodHasBeenCalled { get; private set; }
+            public InjectedClass MethodInjection { get; private set; }
 
-            public bool KernelCreated { get; private set; }
+            public IKernel Kernel { get; private set; }
+
+            public bool IsStarted { get; private set; }
+            public bool IsRunning { get; private set; }
 
             public override void Run()
             {
+                IsRunning = true;
             }
 
             protected override IKernel CreateKernel()
             {
-                this.KernelCreated = true;
+                this.Kernel = new StandardKernel();
 
-                return new StandardKernel();
+                return this.Kernel;
+            }
+
+            protected override bool OnRoleStarted()
+            {
+                IsStarted = true;
+                return IsStarted;
+            }
+
+            protected override void OnRoleStopping()
+            {
+                IsRunning = false;
+            }
+
+            protected override void OnRoleStopped()
+            {
+                IsStarted = false;
             }
         }
     }
