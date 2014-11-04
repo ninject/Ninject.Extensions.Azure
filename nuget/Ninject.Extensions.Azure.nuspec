@@ -7,6 +7,7 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://github.com/ninject/ninject.extensions.azure/raw/master/LICENSE.txt</licenseUrl>
     <description>Extension for Ninject which adds support for Azure roles</description>
+    <releaseNotes>https://github.com/ninject/Ninject.Extensions.Azure/blob/master/ReleaseNotes.md</releaseNotes>
     <summary></summary>
     <language>en-US</language>
     <tags>Ninject ioc di azure</tags>

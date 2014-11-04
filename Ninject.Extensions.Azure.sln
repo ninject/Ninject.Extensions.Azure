@@ -1,9 +1,17 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninject.Extensions.Azure", "src\Ninject.Extensions.Azure\Ninject.Extensions.Azure.csproj", "{DD899683-B40D-4341-B136-18C2A61F590E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninject.Extensions.Azure.Test", "src\Ninject.Extensions.Azure.Test\Ninject.Extensions.Azure.Test.csproj", "{277C9C60-5C79-4A59-9B9C-017B88ACF1CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CCE32333-E04C-4E83-A3F5-5B46A7ADE360}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+		ReleaseNotes.md = ReleaseNotes.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

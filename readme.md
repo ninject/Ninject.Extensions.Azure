@@ -1,8 +1,7 @@
-# Getting Started
-
-## Introduction
-
+# Ninject.Extensions.Azure [![NuGet Version](http://img.shields.io/nuget/v/Ninject.Extensions.Azure.svg?style=flat)](https://www.nuget.org/packages/Ninject.Extensions.Azure/) [![NuGet Downloads](http://img.shields.io/nuget/dt/Ninject.Extensions.Azure.svg?style=flat)](https://www.nuget.org/packages/Ninject.Extensions.Azure/)
 This extension adds support for Microsoft Azure Worker Roles.
+
+## Getting started
 
 Just derive from NinjectRoleEntryPoint in your WorkerRole.cs (previously RoleEntryPoint) and override the following methods:
 
@@ -31,44 +30,5 @@ Addition to that you can also override OnRoleStopped() which is called after the
 protected virtual void OnRoleStopped();
 ```
 
-## Example file
-
-```csharp
-using System;
-using Ninject;
-using Ninject.Extensions.Azure;
-
-namespace Example
-{
-
-    public class MyRoleEntryPoint : NinjectRoleEntryPoint
-    {
-
-        public override void Run()
-        {
-
-        }
-
-        protected override IKernel CreateKernel()
-        {
-            return new StandardKernel();
-        }
-
-        protected override bool OnRoleStarted()
-        {
-            return true;
-        }
-
-        protected override void OnRoleStopping()
-        {
-
-        }
-
-        protected override void OnRoleStopped()
-        {
-
-        }
-    }
-
-}
-```
+## CI build status
+[![Build Status](https://teamcity.bbv.ch/app/rest/builds/buildType:(id:bt44)/statusIcon)](http://teamcity.bbv.ch/viewType.html?buildTypeId=bt44&guest=1)
