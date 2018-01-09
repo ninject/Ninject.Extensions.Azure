@@ -1,3 +1,8 @@
+
+Version 3.3.0
+---------------
+Changed: Require .NET 4.5
+
 Version 3.2.1
 ---------------
 Changed: Update to Azure SDK 2.4
