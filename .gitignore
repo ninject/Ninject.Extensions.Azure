@@ -8,3 +8,4 @@ Bin
 _ReSharper.Ninject.Extensions.azure
 /lib/Ninject/*.zip
 /lib/Ninject/*/**
+/packages/*

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <project name="Ninject" default="build">
-    <property name="version" value="2.2.0.0" overwrite="true"/>
+    <property name="version" value="3.3.0.0" overwrite="true"/>
     <property name="product.name" value="Ninject.Extensions.Azure" overwrite="false"/>
     <property name="product.company" value="bbv Software Services AG" overwrite="false"/>
-    <property name="product.duration" value="2009-2012" overwrite="false"/>
+    <property name="product.duration" value="2009-2018" overwrite="false"/>
     <property name="product.description" value="Azure Extension for Ninject" overwrite="false"/>
-    <property name="product.platforms" value="net-3.5,net-4.0"  overwrite="false"/>
-    <property name="product.buildserverPlatforms" value="net-3.5,net-4.0"  overwrite="false"/>
+    <property name="product.platforms" value="net-4.5"  overwrite="false"/>
+    <property name="product.buildserverPlatforms" value="net-4.5"  overwrite="false"/>
     <property name="dependencies" value="Ninject"  overwrite="false"/>
 
     <include buildfile="Ninject.include" />
